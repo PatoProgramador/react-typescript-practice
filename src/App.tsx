@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import List from './components/List'
+import Form from './components/Form'
 
 const inital_state = [
   {
@@ -35,6 +36,7 @@ function App() {
     <div className="App">
       <h1>subs</h1>
       <List subs={subs}/>
+      <Form/>
     </div>
   );
 }
