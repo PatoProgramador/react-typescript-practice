@@ -25,7 +25,8 @@ interface AppState {
 
 function App() {
 
-  const [subs, setSubs] = useState<Array<Sub>>([]);
+  const [subs, setSubs] = useState<AppState["subs"]>([]);
+  const [newSub, setNewSub] = useState<AppState["newSubs"]>(0)
 
   useEffect(() => {
     setSubs(inital_state)
@@ -35,7 +36,7 @@ function App() {
     <div className="App">
       <h1>subs</h1>
       <List subs={subs}/>
-      <Form/>
+      <Form onNewSub={setSubs}/>
     </div>
   );
 }
