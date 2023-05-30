@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import List from './components/List'
 
 const inital_state = [
   {
@@ -33,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <h1>subs</h1>
-
+      <List subs={subs}/>
     </div>
   );
 }
