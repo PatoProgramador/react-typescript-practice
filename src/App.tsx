@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import List from './components/List'
 import Form from './components/Form'
@@ -28,15 +28,21 @@ function App() {
   const [subs, setSubs] = useState<AppState["subs"]>([]);
   const [newSub, setNewSub] = useState<AppState["newSubs"]>(0)
 
+  const divRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     setSubs(inital_state)
   }, [])
 
+  const handleNewSub = (newSub: Sub): void => {
+    setSubs(subs => [...subs, newSub])
+  }
+
   return (
-    <div className="App">
+    <div className="App" ref={divRef}>
       <h1>subs</h1>
       <List subs={subs}/>
-      <Form onNewSub={setSubs}/>
+      <Form onNewSub={handleNewSub}/>
     </div>
   );
 }
